@@ -1,0 +1,113 @@
+<html>
+	<head>
+		<style>
+img, video, audio
+{
+	padding: 10px;
+	max-width: 90%;
+	min-width: 230px;
+	max-height: fill-available;
+}
+</style>
+	</head>
+	<body>
+		<div id="content">
+			<div id="initial">
+				<p id="prompt">
+					Please enter the answer to this math problem:
+				</p>
+			</div>
+			<div id="secondary" style="display: none;">
+				<p>Congratulations! you are a real human being!</p>
+				<img src="./media/real_human.gif">
+				<p><a href="./media/capcha proves heavy is a real human bean.webm">Inspiration</a></p>
+				<p>Itself inspired by <a href="http://realhumanbeing.net" target="_blank">this</a> (which I didn't know was a real site until I had almost finished this page, and is much higher quality)</p>
+			</div>
+			<div id="tertiary" style="display: none;">
+				<img src="./media/secret robot internet.png" style="">
+				<p>A silly page made by disgusting_wall</p>
+				<!-- TODO: link to github -->
+				<p>Please don't sue me for stealing media assets. Thank you. </p>
+			</div>
+		</div>
+		<div id="form">
+			<div id="questions">
+				<span id="questionOne"><p>1 + 2 = ?</p></span>
+				<span id="questionTwo" style="display: none;"><p>.1 + .2 = ?</p></span>
+			</div>
+			<input type="text" name="response" id="response" />
+			<input type="submit" value="Submit" id="submit" name="submit" />
+		</div>
+		<script>
+function valueIsCorrect(target)
+{
+	if (document.getElementById("response").value === target)
+	{
+		return true;
+	}
+	
+	return false;
+}
+
+function secretRobotInternet()
+{
+	document.getElementById("tertiary").style.display = "";
+	document.getElementById("form").style.display = "none";
+	
+	return true;
+}
+
+function robotButtonListener(ev)
+{
+	if (valueIsCorrect((.1+.2).toString()))
+	{
+		return secretRobotInternet();
+	}
+	
+	return false;
+}
+
+function becomeRealHumanBean()
+{
+	//change submit listener
+	document.getElementById("submit").onclick = robotButtonListener;
+	
+	document.getElementById("initial").style.display = "none";
+	document.getElementById("secondary").style.display = "";
+	
+	document.getElementById("questionOne").style.display = "none";
+	document.getElementById("questionTwo").style.display = "";
+	
+	var realHumanBeanAudio = new Audio('./media/College & Electric Youth - A Real Hero (Drive Original Movie Soundtrack).mp3');
+	realHumanBeanAudio.loop = true;
+	realHumanBeanAudio.play();
+	
+	
+	
+	return true;
+}
+
+function initialButtonListener(ev)
+{
+	if (valueIsCorrect("3"))
+	{
+		return becomeRealHumanBean();
+	}
+	
+	return false;
+}
+
+function setup()
+{
+	document.getElementById("submit").onclick = initialButtonListener;
+}
+
+function main()
+{
+	setup();
+}
+
+main();
+</script>
+	</body>
+</html>
