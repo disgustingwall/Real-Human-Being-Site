@@ -31,8 +31,8 @@ img, video, audio
 		</div>
 		<div id="form">
 			<div id="questions">
-				<span id="questionOne"><p>1 + 2 = ?</p></span>
-				<span id="questionTwo" style="display: none;"><p>.1 + .2 = ?</p></span>
+				<span id="first"><p>1 + 2 = ?</p></span>
+				<span id="second" style="display: none;"><p>.1 + .2 = ?</p></span>
 			</div>
 			<input type="text" name="response" id="response" />
 			<input type="submit" value="Submit" id="submit" name="submit" />
@@ -74,8 +74,8 @@ function becomeRealHumanBean()
 	document.getElementById("initial").style.display = "none";
 	document.getElementById("secondary").style.display = "";
 	
-	document.getElementById("questionOne").style.display = "none";
-	document.getElementById("questionTwo").style.display = "";
+	document.getElementById("first").style.display = "none";
+	document.getElementById("second").style.display = "";
 	
 	var realHumanBeanAudio = new Audio('./media/College & Electric Youth - A Real Hero (Drive Original Movie Soundtrack).mp3');
 	realHumanBeanAudio.loop = true;
